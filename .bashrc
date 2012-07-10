@@ -7,6 +7,9 @@
 
 
 TERM='xterm-color'
+export VISUAL='emacs -nw'
+export EDITOR='emacs -nw'
+export PATH=$PATH':~/google_appengine/:~/scripts'
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
@@ -86,8 +89,21 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-#other useful aliases
+#application aliases
 alias emacs='emacs -nw'
+alias ack='ack-grep'
+
+#git aliases
+alias gs='git status'
+alias gd='git diff'
+alias gc='git commit'
+alias ga='git add'
+alias gl='git log'
+alias gp='git pull'
+alias gh='git push'
+alias gb='git branch'
+alias gch='git checkout'
+
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
