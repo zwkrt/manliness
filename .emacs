@@ -1,8 +1,8 @@
 (add-to-list 'load-path "~/.emacs.d/elisp")
 (require 'cl)
-(require 'ido-ubiquitous)
-(require 'flymake-point)
-(require 'lorem)
+;(require 'ido-ubiquitous)
+;(require 'flymake-point)
+;(require 'lorem)
 
 (setq
    backup-by-copying t      ; don't clobber symlinks
@@ -28,23 +28,27 @@
 ;show matching parens
 (show-paren-mode 1)
 
+;temporary hack
+(iswitchb-mode 1)
+;
+
 ;Like iswitchb but much better
-(ido-mode t)
-(ido-ubiquitous t)
-(setq ido-enable-prefix nil
-      ido-enable-flex-matching t
-      ido-auto-merge-work-directories-length nil
-      ido-create-new-buffer 'always
-      ido-use-filename-at-point 'guess
-      ido-use-virtual-buffers t
-      ido-handle-duplicate-virtual-buffers 2
-      ido-max-prospects 10)
+;; (ido-mode t)
+;; (ido-ubiquitous t)
+;; (setq ido-enable-prefix nil
+;;       ido-enable-flex-matching t
+;;       ido-auto-merge-work-directories-length nil
+;;       ido-create-new-buffer 'always
+;;       ido-use-filename-at-point 'guess
+;;       ido-use-virtual-buffers t
+;;       ido-handle-duplicate-virtual-buffers 2
+;;       ido-max-prospects 10)
 
 ;Custom shortcuts
 (global-set-key (kbd "C-c f") 'fill-paragraph)
 (global-set-key (kbd "C-c l") 'kill-whole-line)
 (global-set-key (kbd "C-c /") 'replace-regexp)
-(global-set-key (kbd "C-t") 'ido-goto-symbol)
+;(global-set-key (kbd "C-t") 'ido-goto-symbol)
 
 
 ;End Custom shortcuts

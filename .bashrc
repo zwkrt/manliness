@@ -7,8 +7,8 @@
 
 
 TERM='xterm-color'
-export VISUAL='emacs -nw'
-export EDITOR='emacs -nw'
+export VISUAL='vim'
+export EDITOR='vim'
 export PATH=$PATH':~/google_appengine/:~/scripts'
 
 # don't put duplicate lines in the history. See bash(1) for more options
@@ -84,10 +84,10 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ls='ls -hFX --color=auto'
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ls='ls -hFX --color'
+alias ll='ls -alF --color'
+alias la='ls -A --color'
+alias l='ls -CF --color'
 
 #application aliases
 alias emacs='emacs -nw'
