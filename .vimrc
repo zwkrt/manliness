@@ -10,14 +10,16 @@ nmap <leader>w :w!<cr>
 """""""""""""""""""""""""""""""""""""""""""""""
 " Boring normal stuff
 """""""""""""""""""""""""""""""""""""""""""""""
-set incsearch
-set ffs=unix
-set expandtab
-set shiftwidth=4
-set tabstop=4
-set ai
-set wrap
+set incsearch hlsearch
 set showmatch
+nnoremap <silent> <Space> :silent noh<Bar>echo<CR>
+
+set ffs=unix
+
+filetype indent on
+
+set shiftwidth=4 tabstop=4 expandtab
+set wrap
 set wildmenu
 set lazyredraw
 
@@ -26,8 +28,7 @@ set hidden
 set autoread
 
 "Always know exactly where you are!
-set number
-set ruler
+set number ruler
 
 imap <C-w> <ESC><C-w>
 
@@ -40,23 +41,3 @@ au Bufenter * match ExtraWhitespace /\s\+$/
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhitespace /\s\+$/
 
-" Don't close window, when deleting a buffer
-command! Bclose call <SID>BufcloseCloseIt()
-function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
-   let l:alternateBufNum = bufnr("#")
-
-   if buflisted(l:alternateBufNum)
-     buffer #
-   else
-     bnext
-   endif
-
-   if bufnr("%") == l:currentBufNum
-     new
-   endif
-
-   if buflisted(l:currentBufNum)
-     execute("bdelete! ".l:currentBufNum)
-   endif
-endfunction
