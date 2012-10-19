@@ -10,14 +10,15 @@ nmap <leader>w :w!<cr>
 """""""""""""""""""""""""""""""""""""""""""""""
 " Boring normal stuff
 """""""""""""""""""""""""""""""""""""""""""""""
-set incsearch
-set ffs=unix
-set expandtab
-set shiftwidth=4
-set tabstop=4
-set wrap
+set incsearch hlsearch
 set showmatch
+nnoremap <silent> <Space> :silent noh<Bar>echo<CR>
+
+set ffs=unix
 set wildmode=list:longest
+set shiftwidth=4 tabstop=4 expandtab
+set wrap
+set wildmenu
 set lazyredraw
 
 filetype indent on
@@ -27,8 +28,7 @@ set hidden
 set autoread
 
 "Always know exactly where you are!
-set number
-set ruler
+set number ruler
 
 imap <C-w> <ESC><C-w>
 
