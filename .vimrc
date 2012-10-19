@@ -15,11 +15,12 @@ set ffs=unix
 set expandtab
 set shiftwidth=4
 set tabstop=4
-set ai
 set wrap
 set showmatch
-set wildmenu
+set wildmode=list:longest
 set lazyredraw
+
+filetype indent on
 
 "Set how vim deals with buffers and changes to them
 set hidden
@@ -40,23 +41,3 @@ au Bufenter * match ExtraWhitespace /\s\+$/
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhitespace /\s\+$/
 
-" Don't close window, when deleting a buffer
-command! Bclose call <SID>BufcloseCloseIt()
-function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
-   let l:alternateBufNum = bufnr("#")
-
-   if buflisted(l:alternateBufNum)
-     buffer #
-   else
-     bnext
-   endif
-
-   if bufnr("%") == l:currentBufNum
-     new
-   endif
-
-   if buflisted(l:currentBufNum)
-     execute("bdelete! ".l:currentBufNum)
-   endif
-endfunction

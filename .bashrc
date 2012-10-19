@@ -56,9 +56,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='\[\e[1;32m\]\r\n\u@\h:\w\r\n\$\[\e[0m\] '
+    PS1='\[\e[1;31m\]\r\n\u@\h:\w\r\n\$\[\e[0m\] '
 else
-    PS1='\[\e[1;32m\]\r\n\u@\h:\w\r\n\$\[\e[0m\] '
+    PS1='\[\e[1;31m\]\r\n\u@\h:\w\r\n\$\[\e[0m\] '
 fi
 unset color_prompt force_color_prompt
 
@@ -85,9 +85,9 @@ fi
 
 # some more ls aliases
 alias ls='ls -hFX --color'
-alias ll='ls -alF --color'
-alias la='ls -A --color'
-alias l='ls -CF --color'
+
+# expand symbolic links
+alias cd='cd -P'
 
 #application aliases
 alias emacs='emacs -nw'
