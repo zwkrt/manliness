@@ -9,7 +9,7 @@
 TERM='xterm-color'
 export VISUAL='vim'
 export EDITOR='vim'
-export PATH=$PATH':~/google_appengine/:~/scripts'
+export PATH='/usr/local/bin:'$PATH':/usr/local/share/:~/google_appengine/:~/scripts/'
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
@@ -84,25 +84,40 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ls='ls -hFX --color'
+ls -hFX &> /dev/null
+if [ $? -gt 0 ]; then
+    alias ls='/usr/local/bin/gls -hFX --color'
+else
+	alias ls='ls -hFX --color'
+fi
+
 
 # expand symbolic links
 alias cd='cd -P'
 
 #application aliases
 alias emacs='emacs -nw'
-alias ack='ack-grep'
+
+ack &>/dev/null
+if [ $? -gt 0 ]; then
+	alias ack='ack-grep'
+fi
 
 #git aliases
-alias gs='git status'
-alias gd='git diff'
-alias gc='git commit'
 alias ga='git add'
-alias gl='git log'
-alias gp='git pull'
-alias gh='git push'
 alias gb='git branch'
+alias gc='git commit'
 alias gch='git checkout'
+alias gd='git diff'
+alias gf='git fetch'
+alias gh='git push'
+alias gl='git log'
+alias gmv='git mv'
+alias gp='git pull'
+alias gs='git status'
+alias gst='git stash'
+alias gsp='git stash pop'
+alias grm='git rm'
 
 
 # Add an "alert" alias for long running commands.  Use like so:
