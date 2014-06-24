@@ -83,15 +83,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-ls -hFX &> /dev/null
-if [ $? -gt 0 ]; then
-    alias ls='/usr/local/bin/gls -hFX --color'
-else
-	alias ls='ls -hFX --color'
-fi
-
-
 # expand symbolic links
 alias cd='cd -P'
 
